@@ -53,3 +53,19 @@ function logout()
     //setcookie(id,'empty' ,timer,path,domain)
     setcookie('PHPSESSID', '',time() - 3600,$params['[path'],$params['domain'],$params['secure'],$params['httponly']);
 }
+
+function currentUserId($db) {
+    $email = $_SESSION['user']['email'] ?? null;
+
+    if (!$email) {
+        return null;
+    }
+
+    $user = $db->query(
+        "SELECT id FROM users WHERE email = :email",
+        ['email' => $email]
+    )->find();
+
+    return $user['id'] ?? null;
+}
+

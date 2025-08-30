@@ -10,9 +10,23 @@
 
         <p><?= htmlspecialchars($note['body']) ?></p>
 
-        <footer class="mt-6">
-            <a href="/note/edit?id=<?= $note['id']?>" class="inline-flex justify-center rounded-md border border-transparent bg-gray-500 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2" >Edit</a>
-        </footer>
+        <div class="mt-6 flex items-center space-x-4">
+            <a href="/note/edit?id=<?= $note['id']?>"
+               class="inline-flex justify-center rounded-md border border-transparent bg-blue-500 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2">
+                Edit
+            </a>
+
+            <form method="POST">
+                <input type="hidden" name="_method" value="DELETE">
+                <input type="hidden" name="id" value="<?= $note['id'] ?>">
+                <button
+                        class="inline-flex justify-center rounded-md border border-transparent bg-red-500 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-400 focus:ring-offset-2">
+                    Delete
+                </button>
+            </form>
+        </div>
+
+
 
 
 
