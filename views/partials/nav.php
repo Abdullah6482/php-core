@@ -10,7 +10,9 @@
                         <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
                         <a href="/" class="<?= urlIs('/') ? 'bg-gray-900 text-white' : 'text-gray-300' ?> hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium">Home</a>
                         <a href="/about" class="<?= urlIs('/about') ? 'bg-gray-900 text-white' : 'text-gray-300' ?> hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">About</a>
+                        <?php if($_SESSION['user']?? false) : ?>
                         <a href="/notes" class="<?= urlIs('/notes') ? 'bg-gray-900 text-white' : 'text-gray-300' ?> hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Notes</a>
+                        <?php endif ?>
                         <a href="/contact" class="<?= urlIs('/contact') ? 'bg-gray-900 text-white' : 'text-gray-300' ?> hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Contact</a>
                     </div>
                 </div>
@@ -38,11 +40,23 @@
                                 </button>
 
                             <?php else: ?>
-                            <a href="/register" class="text-white">Register</a>
+                                <a href="/register" class="<?= urlIs('/register') ? 'bg-gray-900 text-white' : 'text-gray-300' ?> hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Register</a>
+                                <a href="/login" class="<?= urlIs('/login') ? 'bg-gray-900 text-white' : 'text-gray-300' ?> hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Log in</a>
+
                             <?php endif; ?>
 
                         </div>
                     </div>
+
+                    <?php if($_SESSION['user'] ?? false) : ?>
+                    <div class="ml-3">
+                        <form action="/sessions" method="POST">
+                            <input type="hidden" name="_method" value="DELETE">
+                            <Button class="text-white">Log Out</Button>
+                        </form>
+                    </div>
+                    <?php endif; ?>
+
                 </div>
             </div>
             <div class="-mr-2 flex md:hidden">

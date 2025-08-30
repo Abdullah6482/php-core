@@ -28,7 +28,7 @@
                                         <p class="text-red-500 text-xs mt-2"><?= $errors['body'] ?></p>
                                     <?php endif; ?>
                                 </div>
-                            </div>x
+                            </div>
                         </div>
 
                         <div class="bg-gray-50 px-4 py-3 text-right sm:px-6">
