@@ -1,27 +1,21 @@
 <?php
 
 // Log in the user if the credentials are correct
-
+use Http\Forms\LoginForm;
 use Core\App;
 use Core\Database;
-use Core\Validator;
+
 
 $db = App::resolve(Database::class);
 
 $email = $_POST['email'];
 $password = $_POST['password'];
 
-$errors = [];
-if (!Validator::email($email)) {
-    $errors['email'] = 'Please provide a valid email address.';
-}
+$form = new LoginForm();
 
-if (!Validator::string($password, 7, 255)) {
-    $errors['password'] = 'Please provide a password .';
-}
-if(!empty($errors)){
+if(!$form->validate($email,$password)) {
     return view('sessions/create.view.php',[
-        'error' => $errors
+        'errors' => $form->errors()
     ]);
 }
 
