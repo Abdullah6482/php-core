@@ -35,24 +35,13 @@ function view($path, $attributes = [])
     require base_path('views/' . $path);
 }
 
-function login($user)
+
+function redirect($path)
 {
-    $_SESSION['user'] = [
-        'email' => $user['email']
-    ];
-    session_regenerate_id(true);
+    header("location: {$path}");
+    exit();
 }
 
-function logout()
-{
-    $_SESSION = [];
-    session_destroy();
-
-    $params = session_get_cookie_params();
-
-    //setcookie(id,'empty' ,timer,path,domain)
-    setcookie('PHPSESSID', '',time() - 3600,$params['[path'],$params['domain'],$params['secure'],$params['httponly']);
-}
 
 function currentUserId($db) {
     $email = $_SESSION['user']['email'] ?? null;
