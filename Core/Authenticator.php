@@ -16,9 +16,7 @@ class Authenticator
                 $this->login([
                     'email' => $email
                 ]);
-
                 return true;
-
             }
         }
         return false;

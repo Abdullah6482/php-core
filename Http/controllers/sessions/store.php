@@ -19,6 +19,9 @@ if($form->validate($email,$password)) {     // validate if the email and passwor
         $form->error('email',"No matching account found for the email address and password.");
 }
 Session::flash('error',$form->errors());
+Session::flash('old',[
+    'email' => $_POST['email']
+]);
 return redirect('/login');
 
 

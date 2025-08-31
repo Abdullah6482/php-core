@@ -1,6 +1,7 @@
 <?php
 
 use Core\Response;
+use Core\Session;
 
 function dd($value)
 {
@@ -56,5 +57,9 @@ function currentUserId($db) {
     )->find();
 
     return $user['id'] ?? null;
+}
+
+function old($key,$default = ''){
+        return Session::get('old')[$key] ?? $default;
 }
 
