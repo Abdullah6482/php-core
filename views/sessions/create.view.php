@@ -19,9 +19,7 @@
                     </div>
                 </div>
 
-                <?php if (isset($errors['email'])) : ?>
-                    <p class="text-red-500 text-xs mt-2"><?= $errors['email'] ?></p>
-                <?php endif; ?>
+
 
                 <div>
                     <div class="flex items-center justify-between">
@@ -36,15 +34,14 @@
                     <p class="text-red-500 text-xs mt-2"><?= $errors['password'] ?></p>
                 <?php endif; ?>
 
-                <?php if (isset($errors['found'])) : ?>
-                    <p class="text-red-500 text-xs mt-2"><?= $errors['found'] ?></p>
-                <?php endif; ?>
-
                 <div>
                     <button type="submit" class="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm/6 font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Login</button>
                 </div>
 
             </form>
+            <?php if (isset($errors['email'])) : ?>
+                <p class="text-red-500 text-xs mt-2"><?= $errors['email'] ?></p>
+            <?php endif; ?>
 
         </div>
     </div>
