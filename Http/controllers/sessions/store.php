@@ -8,8 +8,6 @@ $form = LoginForm::validate($attributes = [
     'password' => $_POST['password']
 ]);
 
-
-
 $signedIn =(new Authenticator())->attempt($attributes['email'],$attributes['password']);
 
 if(!$signedIn) {
@@ -18,7 +16,6 @@ if(!$signedIn) {
 }
 
 redirect('/');
-
 
 
 

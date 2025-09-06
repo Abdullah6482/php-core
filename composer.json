@@ -1,0 +1,26 @@
+{
+    "name": "abdullah/www",
+    "authors": [
+        {
+            "name": "Abdullah6482",
+            "email": "aa6482983@gmail.com"
+        }
+    ],
+    "require": {
+        "illuminate/collections": "^12.28"
+    },
+    "autoload": {
+      "psr-4": {
+        "Core\\" : "Core/",
+        "Http\\" : "Http/"
+      }
+    },
+    "require-dev": {
+        "pestphp/pest": "^4.0"
+    },
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    }
+}

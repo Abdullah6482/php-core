@@ -20,11 +20,8 @@ class LoginForm
 
     public static function validate($attributes)
     {
-
         $instance = new static($attributes);
-
         return $instance->failed() ? $instance->throw() : $instance;
-
     }
 
     public function throw()
